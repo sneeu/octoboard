@@ -1,0 +1,48 @@
+* {
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-style: normal;
+	font-weight: normal;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #fff;
+	color: #333;
+	font: 100%/1.5em "Helvetica Neue",Arial,Helvetica,sans-serif;
+	padding: 2.25em;
+}
+
+a {
+	color: #4183c4;
+}
+
+h1 {
+	font-size: 2em;
+	line-height: 1.5em;
+}
+h2 {
+	font-size: 1.25em;
+	line-height: 1.2em;
+}
+ol,
+p,
+ul {
+	padding: 0 0 1.5em;
+}
+ol > li,
+ul > li {
+}
+
+#repo_list li {
+	border: 1px solid #eee;
+	display: inline-block;
+	margin: 0 1% 1% 0;
+	padding: 0.5em;
+	width: 19%;
+}

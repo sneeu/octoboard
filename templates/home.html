@@ -5,11 +5,20 @@
 	<meta charset="utf-8" />
 	<title>Octoboard</title>
 
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/core.css') }}" type="text/css" media="screen" charset="utf-8" />
+
 	<script src="{{ url_for('static', filename='scripts/json2.js') }}" type="text/javascript" charset="utf-8"></script>
 	<script src="{{ url_for('static', filename='scripts/underscore.js') }}" type="text/javascript" charset="utf-8"></script>
 	<script src="{{ url_for('static', filename='scripts/zepto.js') }}" type="text/javascript" charset="utf-8"></script>
+	<script src="{{ url_for('static', filename='scripts/handlebars.js') }}" type="text/javascript" charset="utf-8"></script>
 	<script src="{{ url_for('static', filename='scripts/backbone.js') }}" type="text/javascript" charset="utf-8"></script>
 	<script src="{{ url_for('static', filename='scripts/octoboard.js') }}" type="text/javascript" charset="utf-8"></script>
+
+	{% raw %}
+		<script id="template_RepoView" type="text/x-handlebars-template">
+			<a href="{{html_url}}">{{name}}</a>
+		</script>
+	{% endraw %}
 
 </head>
 <body>

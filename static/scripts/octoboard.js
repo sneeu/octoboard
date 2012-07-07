@@ -15,7 +15,8 @@ var RepoView = Backbone.View.extend({
 	className: 'repo',
 	events: {},
 	render: function () {
-		this.$el.html(this.model.get('name'));
+		var template = Handlebars.compile($('#template_RepoView').html());
+		this.$el.html(template(this.model.toJSON()));
 		return this;
 	}
 });
@@ -34,9 +35,10 @@ var RepoList = Backbone.View.extend({
 	events: {},
 	addOne: function (repo) {
 		var view = new RepoView({model: repo});
-		this.$el.append(view.render().el);
+		this.$('#repo_list').append(view.render().el);
 	},
 	addAll: function () {
+		this.render();
 		this.repos.each(this.addOne);
 	},
 	render: function () {
@@ -46,5 +48,5 @@ var RepoList = Backbone.View.extend({
 
 
 Zepto(function ($) {
-	window.repoList = new RepoList({el: $('#my_repos')[0]});
+	window.repoList = new RepoList({el: $('#my_repos')});
 });
