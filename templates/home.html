@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<title>Octoboard</title>
+
+</head>
+<body>
+
+	<header>
+		<h1>Octoboard for {{ github_user.login }}</h1>
+		<nav>
+			<ul>
+				<li><a href="{{ url_for('logout') }}">Log-out</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<article>
+		<section id="my_repos"></section>
+	</article>
+
+</body>
+</html>

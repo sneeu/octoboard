@@ -1,6 +1,6 @@
-import pprint
+import json
 
-from flask import Flask, redirect, url_for, session, request
+from flask import Flask, redirect, render_template, request, session, url_for
 from flaskext.oauth import OAuth
 
 import secrets
@@ -26,11 +26,19 @@ github = oauth.remote_app('github',
 
 
 @app.route('/')
-def index():
+def home():
     if not get_github_oauth_token():
-        return redirect(url_for('login') + '?next=' + url_for('index'))
-    me = github.get('/user')
-    return pprint.pformat(me.data)
+        return redirect(url_for('login') + '?next=' + url_for('home'))
+    return render_template('home.html', github_user=session.get('github_user'))
+
+
+@app.route('/api')
+def api():
+    if not get_github_oauth_token():
+        return render_template('api_noauth.html'), 401
+
+    path = request.args.get('path')
+    return json.dumps(github.get(path).data)
 
 
 @app.route('/log-in/')
@@ -49,7 +57,15 @@ def github_authorized(resp):
             request.args['error_description']
         )
     session['oauth_token'] = (resp['access_token'], '')
+    session['github_user'] = github.get('/user').data
     return redirect(request.args.get('next'))
+
+
+@app.route('/log-out/')
+def logout():
+    session['oauth_token'] = None
+    session['github_user'] = None
+    return render_template('logged_out.html')
 
 
 @github.tokengetter
