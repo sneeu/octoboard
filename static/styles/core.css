@@ -15,7 +15,7 @@ body {
 	background: #fff;
 	color: #333;
 	font: 100%/1.5em "Helvetica Neue",Arial,Helvetica,sans-serif;
-	padding: 2.25em;
+	padding: 0 1.5em;
 }
 
 a {
@@ -39,6 +39,27 @@ ol > li,
 ul > li {
 }
 
+body > header {
+	border-bottom: 0.25em solid #ccc;
+	float: left;
+	margin: 0 0 1.25em;
+	width: 100%;
+}
+body > header > h1 {
+	float: left;
+}
+body > header > nav {
+	float: right;
+	line-height: 3em;
+}
+body > header > nav ul {
+	padding: 0;
+}
+
+
+#repo_list {
+	clear: both;
+}
 #repo_list li {
 	border: 1px solid #eee;
 	display: inline-block;

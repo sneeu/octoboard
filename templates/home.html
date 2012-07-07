@@ -3,7 +3,7 @@
 <head>
 
 	<meta charset="utf-8" />
-	<title>Octoboard</title>
+	<title>octoboard</title>
 
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles/core.css') }}" type="text/css" media="screen" charset="utf-8" />
 
@@ -24,7 +24,7 @@
 <body>
 
 	<header>
-		<h1>Octoboard for {{ github_user.login }}</h1>
+	<h1>octoboard for <a href="{{ github_user.html_url }}">{{ github_user.login }}</a></h1>
 		<nav>
 			<ul>
 				<li><a href="{{ url_for('logout') }}">Log-out</a></li>
